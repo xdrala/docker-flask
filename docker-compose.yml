@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  main:
+    image: xdrala/flask:${VERSION_MAIN:-latest}
+    build:
+      context: ./main
+      dockerfile: Dockerfile
