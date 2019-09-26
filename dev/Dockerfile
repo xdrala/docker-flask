@@ -24,4 +24,4 @@ WORKDIR /app
 EXPOSE 8000
 
 # Run the app with Gunicorn
-ENTRYPOINT gunicorn -c /etc/gunicorn/gunicorn.conf.py run:app
+ENTRYPOINT gunicorn -c /etc/gunicorn/gunicorn.conf.py --reload run:app

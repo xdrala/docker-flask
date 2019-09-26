@@ -9,3 +9,5 @@ services:
     image: xdrala/flask:${VERSION_DEV:-dev}
     ports:
       - 8001:8000
+    volumes:
+      - ./dev/app:/app
