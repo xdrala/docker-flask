@@ -5,3 +5,7 @@ services:
     image: xdrala/flask:latest
     ports:
       - 8000:80
+  dev-latest:
+    image: xdrala/dev:latest
+    ports:
+      - 80001:8000
