@@ -8,4 +8,4 @@ services:
   dev-latest:
     image: xdrala/flask:dev
     ports:
-      - 80001:8000
+      - 8001:8000
