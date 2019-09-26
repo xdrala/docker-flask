@@ -6,3 +6,9 @@ services:
     build:
       context: ./main
       dockerfile: Dockerfile
+
+  dev:
+    image: xdrala/flask:${VERSION_DEV:-dev}
+    build:
+      context: ./dev
+      dockerfile: Dockerfile

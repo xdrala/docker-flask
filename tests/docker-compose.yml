@@ -1,7 +1,11 @@
 version: '3'
 
 services:
-  main-latest:
-    image: xdrala/flask:latest
+  main:
+    image: xdrala/flask:${VERSION_MAIN:-latest}
     ports:
       - 8000:80
+  dev:
+    image: xdrala/flask:${VERSION_DEV:-dev}
+    ports:
+      - 8001:8000
