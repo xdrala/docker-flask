@@ -14,24 +14,24 @@ RUN echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/
                                             supervisor \
     && rm -rf /var/lib/apt/lists/*
 
-# Nginx config
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-COPY conf/nginx.nginx /etc/nginx/conf.d/default.conf
-
-# Supervisor config
-COPY conf/supervisor/ /etc/supervisor/conf.d/
-
-# Gunicorn config
-COPY conf/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
-
 # Install python packages
 RUN pip install -U pip \
     && pip install gunicorn==$GUNICORN_VERSION \
                    eventlet==$EVENTLET_VERSION \
                    Flask==$FLASK_VERSION
 
+# Conf Nginx
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+COPY conf/nginx.nginx /etc/nginx/conf.d/default.conf
+
+# Conf Supervisor
+COPY conf/supervisor/ /etc/supervisor/conf.d/
+
+# Conf Gunicorn
+COPY conf/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
+
 # Sample app
-COPY ./app /app
+COPY app /app
 
 # 80 for HTTP
 EXPOSE 80
