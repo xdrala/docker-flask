@@ -31,7 +31,7 @@ COPY conf/supervisor/ /etc/supervisor/conf.d/
 COPY conf/gunicorn.conf.py /etc/gunicorn/gunicorn.conf.py
 
 # Sample app
-COPY ./app /app
+COPY app /app
 
 # 80 for HTTP
 EXPOSE 80
